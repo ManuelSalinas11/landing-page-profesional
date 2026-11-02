@@ -1,0 +1,490 @@
+/* ===== FUENTE Y VARIABLES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primario: #2563eb;
+    --primario-oscuro: #1e40af;
+    --acento: #06b6d4;
+    --texto: #1e293b;
+    --texto-suave: #64748b;
+    --fondo: #ffffff;
+    --fondo-alt: #f1f5f9;
+    --borde: #e2e8f0;
+    --sombra: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --sombra-hover: 0 18px 40px rgba(37, 99, 235, 0.18);
+    --radio: 14px;
+}
+
+/* ===== RESET Y BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto);
+    background-color: var(--fondo);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* ===== ENCABEZADO ===== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+}
+
+.header-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo span {
+    color: var(--primario);
+}
+
+.nav-lista {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-lista a {
+    font-weight: 500;
+    color: var(--texto-suave);
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-lista a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primario);
+    transition: width 0.3s;
+}
+
+.nav-lista a:hover,
+.nav-lista a.activo {
+    color: var(--primario);
+}
+
+.nav-lista a:hover::after,
+.nav-lista a.activo::after {
+    width: 100%;
+}
+
+/* Botón del menú móvil (se usa en el Commit 3) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--texto);
+    cursor: pointer;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primario);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.btn-primario {
+    background-color: var(--primario);
+    color: #fff;
+}
+
+.btn-primario:hover {
+    background-color: var(--primario-oscuro);
+    border-color: var(--primario-oscuro);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--primario);
+}
+
+.btn-secundario:hover {
+    background-color: var(--primario);
+    color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(135deg, #eff6ff 0%, #ecfeff 100%);
+    padding: 90px 0;
+}
+
+.hero-contenido {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-etiqueta {
+    color: var(--primario);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.hero h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    margin-bottom: 18px;
+}
+
+.hero-texto > p {
+    color: var(--texto-suave);
+    margin-bottom: 30px;
+    max-width: 520px;
+}
+
+.hero-botones {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-imagen img {
+    width: 100%;
+    filter: drop-shadow(0 20px 40px rgba(37, 99, 235, 0.2));
+}
+
+/* ===== SECCIONES ===== */
+.seccion {
+    padding: 90px 0;
+}
+
+.seccion-alt {
+    background-color: var(--fondo-alt);
+}
+
+.seccion-titulo {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.seccion-subtitulo {
+    text-align: center;
+    color: var(--texto-suave);
+    margin-bottom: 50px;
+}
+
+/* ===== TARJETAS ===== */
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.tarjeta {
+    background-color: var(--fondo);
+    padding: 36px 30px;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    border-top: 4px solid var(--primario);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
+}
+
+.tarjeta-icono {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+}
+
+.tarjeta h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: var(--texto-suave);
+}
+
+.tarjeta ul {
+    margin-top: 14px;
+}
+
+.tarjeta li {
+    color: var(--texto-suave);
+    padding: 4px 0;
+}
+
+.tarjeta li::before {
+    content: '✔ ';
+    color: var(--acento);
+    font-weight: 700;
+}
+
+/* ===== LLAMADO A LA ACCIÓN ===== */
+.cta {
+    background: linear-gradient(135deg, var(--primario) 0%, var(--acento) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    margin-bottom: 28px;
+    opacity: 0.9;
+}
+
+.cta .btn-primario {
+    background-color: #fff;
+    color: var(--primario);
+    border-color: #fff;
+}
+
+/* ===== ENCABEZADO DE PÁGINAS SECUNDARIAS ===== */
+.pagina-encabezado {
+    background: linear-gradient(135deg, #eff6ff 0%, #ecfeff 100%);
+    padding: 70px 0;
+    text-align: center;
+}
+
+.pagina-encabezado h1 {
+    font-size: 2.5rem;
+}
+
+.pagina-encabezado p {
+    color: var(--texto-suave);
+}
+
+/* ===== SOBRE MÍ ===== */
+.sobre-mi {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sobre-mi img {
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.sobre-mi h2 {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.sobre-mi p {
+    color: var(--texto-suave);
+    margin-bottom: 14px;
+}
+
+.habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.habilidades li {
+    background-color: #eff6ff;
+    color: var(--primario);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ===== CONTACTO ===== */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
+}
+
+.contacto-info .tarjeta {
+    margin-bottom: 20px;
+}
+
+.formulario {
+    background-color: var(--fondo);
+    padding: 40px;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--primario);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+/* ===== PIE DE PÁGINA ===== */
+.footer {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer p + p {
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--fondo);
+        border-bottom: 1px solid var(--borde);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+    }
+
+    .nav.abierto {
+        max-height: 320px;
+    }
+
+    .nav-lista {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 5%;
+    }
+
+    .nav-lista li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--borde);
+    }
+
+    .hero-contenido,
+    .sobre-mi,
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-texto > p {
+        margin: 0 auto 30px;
+    }
+
+    .hero-botones {
+        justify-content: center;
+    }
+}

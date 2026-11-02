@@ -488,3 +488,67 @@ ul {
         justify-content: center;
     }
 }
+/* ===== BANNER PROMOCIONAL ===== */
+.banner-promo {
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 5%;
+    font-size: 0.95rem;
+}
+
+.banner-promo a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* ===== TEMA OSCURO (DARK MODE) ===== */
+:root {
+    --primario: #3b82f6;
+    --primario-oscuro: #2563eb;
+    --texto: #e2e8f0;
+    --texto-suave: #94a3b8;
+    --fondo: #0f172a;
+    --fondo-alt: #1e293b;
+    --borde: #334155;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.header {
+    background-color: rgba(15, 23, 42, 0.92);
+}
+
+.hero,
+.pagina-encabezado {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.tarjeta {
+    background-color: #1e293b;
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--primario);
+}
+
+.seccion-alt .tarjeta {
+    background-color: #0f172a;
+}
+
+.formulario {
+    background-color: #1e293b;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    background-color: #0f172a;
+    color: var(--texto);
+}
+
+.habilidades li {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+}
+
+.footer {
+    background-color: #020617;
+}
